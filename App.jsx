@@ -190,6 +190,119 @@ const CoupleGhibli = ({ w = 180, h = 100 }) => (
 );
 
 /* ════════════════════════════════════════════════════
+   APP LOGO — Based on IMG_8832 Ghibli scene
+   Two characters at lobster restaurant, warm tones
+   Used in top-left header replacing the fake clock
+════════════════════════════════════════════════════ */
+const AppLogo = ({ size = 44 }) => {
+  const r = size / 44; // scale factor
+  return (
+    <div style={{ display:"flex", alignItems:"center", gap:9 }}>
+      {/* Icon — Ghibli scene in rounded square */}
+      <svg width={size} height={size} viewBox="0 0 44 44" style={{ display:"block", borderRadius: Math.round(size * 0.26), overflow:"hidden", flexShrink:0 }}>
+        {/* Background — warm restaurant amber */}
+        <defs>
+          <linearGradient id="logograd" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#2C1A0E"/>
+            <stop offset="100%" stopColor="#1A0C06"/>
+          </linearGradient>
+          <radialGradient id="logoglow" cx="50%" cy="40%" r="55%">
+            <stop offset="0%" stopColor="#6B3A1F" stopOpacity=".7"/>
+            <stop offset="100%" stopColor="transparent"/>
+          </radialGradient>
+        </defs>
+        <rect width="44" height="44" fill="url(#logograd)"/>
+        <rect width="44" height="44" fill="url(#logoglow)"/>
+
+        {/* Restaurant atmosphere — neon glow top */}
+        <rect x="8" y="3" width="28" height="4" rx="2" fill="#E05050" opacity=".6"/>
+        <rect x="10" y="3.5" width="10" height="2.5" rx="1.2" fill="#FF7070" opacity=".8"/>
+        <rect x="22" y="3.5" width="12" height="2.5" rx="1.2" fill="#FF7070" opacity=".8"/>
+
+        {/* Table */}
+        <ellipse cx="22" cy="38" rx="18" ry="4" fill="#3A2010" opacity=".9"/>
+        <rect x="4" y="33" width="36" height="6" rx="3" fill="#2E1808"/>
+
+        {/* Lobster on plate */}
+        <ellipse cx="22" cy="33" rx="7" ry="3" fill="#2A1206" opacity=".8"/>
+        <ellipse cx="22" cy="32" rx="5" ry="2" fill="#D04010" opacity=".9"/>
+        <ellipse cx="22" cy="31.5" rx="3.5" ry="1.5" fill="#E05020"/>
+        {/* lobster claws */}
+        <ellipse cx="17" cy="30" rx="2" ry="1.2" fill="#D03010" transform="rotate(-20 17 30)"/>
+        <ellipse cx="27" cy="30" rx="2" ry="1.2" fill="#D03010" transform="rotate(20 27 30)"/>
+
+        {/* Sam (left) — dark hair, cream sweater, thumbs up */}
+        {/* Body */}
+        <rect x="6" y="22" width="13" height="14" rx="5" fill="#E8E0D4"/>
+        {/* Head */}
+        <ellipse cx="12.5" cy="19" rx="6" ry="5.5" fill="#F2C9A0"/>
+        {/* Dark hair */}
+        <ellipse cx="12.5" cy="14.5" rx="5.5" ry="3.5" fill="#1E1208"/>
+        <ellipse cx="9" cy="16" rx="3" ry="4" fill="#1E1208"/>
+        <ellipse cx="16" cy="16" rx="2.5" ry="3.5" fill="#1E1208"/>
+        <ellipse cx="12.5" cy="17" rx="5" ry="2" fill="#F2C9A0"/>
+        {/* Eyes */}
+        <ellipse cx="10.5" cy="19" rx="2" ry="1.8" fill="#fff"/>
+        <ellipse cx="10.5" cy="19" rx="1.3" ry="1.3" fill="#1A0A00"/>
+        <circle cx="9.8" cy="18.3" r=".7" fill="white"/>
+        <ellipse cx="14.5" cy="19" rx="2" ry="1.8" fill="#fff"/>
+        <ellipse cx="14.5" cy="19" rx="1.3" ry="1.3" fill="#1A0A00"/>
+        <circle cx="13.8" cy="18.3" r=".7" fill="white"/>
+        {/* Smile */}
+        <path d="M 10 22 Q 12.5 23.5 15 22" stroke="#C07060" strokeWidth="1" fill="none" strokeLinecap="round"/>
+        {/* Cheeks */}
+        <ellipse cx="8.5" cy="21" rx="2.2" ry="1.3" fill="#F4A0A0" opacity=".4"/>
+        <ellipse cx="16.5" cy="21" rx="2.2" ry="1.3" fill="#F4A0A0" opacity=".4"/>
+        {/* Thumbs up */}
+        <rect x="17" y="20" width="4" height="5" rx="2" fill="#F2C9A0"/>
+        <rect x="18.5" y="16.5" width="2.5" height="5" rx="1.2" fill="#F2C9A0"/>
+
+        {/* GF (right) — dark hair bangs, blue stripe top, peace sign */}
+        {/* Body */}
+        <rect x="25" y="22" width="13" height="14" rx="5" fill="#5A9FD0"/>
+        <rect x="25" y="26" width="13" height="3" fill="white" opacity=".7"/>
+        <rect x="25" y="31" width="13" height="3" fill="white" opacity=".7"/>
+        {/* Head */}
+        <ellipse cx="31.5" cy="19" rx="5.8" ry="5.5" fill="#F0C8A8"/>
+        {/* Hair — bangs + long side */}
+        <rect x="26" y="13" width="11" height="7" rx="3" fill="#1E1208"/>
+        <ellipse cx="31.5" cy="13" rx="5.5" ry="3" fill="#1E1208"/>
+        <rect x="23" y="16" width="3.5" height="10" rx="1.8" fill="#1E1208"/>
+        <rect x="37" y="16" width="3.5" height="10" rx="1.8" fill="#1E1208"/>
+        <ellipse cx="31.5" cy="20" rx="5" ry="2" fill="#F0C8A8"/>
+        {/* Eyes — big */}
+        <ellipse cx="29" cy="19.5" rx="2.3" ry="2.2" fill="#fff"/>
+        <ellipse cx="29" cy="19.5" rx="1.6" ry="1.6" fill="#1A0A00"/>
+        <circle cx="28.2" cy="18.7" r=".8" fill="white"/>
+        <ellipse cx="34" cy="19.5" rx="2.3" ry="2.2" fill="#fff"/>
+        <ellipse cx="34" cy="19.5" rx="1.6" ry="1.6" fill="#1A0A00"/>
+        <circle cx="33.2" cy="18.7" r=".8" fill="white"/>
+        {/* Big smile */}
+        <path d="M 28 22.5 Q 31.5 25 35 22.5" stroke="#C07060" strokeWidth="1" fill="#F09090" opacity=".5"/>
+        {/* Rosy cheeks */}
+        <ellipse cx="26" cy="21.5" rx="2.5" ry="1.5" fill="#F4A0A0" opacity=".5"/>
+        <ellipse cx="37" cy="21.5" rx="2.5" ry="1.5" fill="#F4A0A0" opacity=".5"/>
+        {/* Peace sign */}
+        <rect x="22" y="20" width="3.5" height="5" rx="1.8" fill="#F0C8A8"/>
+        <rect x="22.5" y="15.5" width="1.5" height="6" rx=".75" fill="#F0C8A8"/>
+        <rect x="24.2" y="15.5" width="1.5" height="6" rx=".75" fill="#F0C8A8"/>
+
+        {/* Sparkles */}
+        <circle cx="4" cy="8" r="1" fill="#E8C882" opacity=".7"/>
+        <circle cx="40" cy="6" r=".8" fill="#F4A0C0" opacity=".7"/>
+        <circle cx="38" cy="12" r=".6" fill="#A0C8F0" opacity=".6"/>
+      </svg>
+
+      {/* Wordmark */}
+      <div style={{ display:"flex", flexDirection:"column", gap:1 }}>
+        <div style={{ fontFamily:"'Shippori Mincho B1',serif", fontSize: Math.round(size * 0.38), fontWeight:800, color:"#fff", lineHeight:1, letterSpacing:-0.5 }}>旅ノート</div>
+        <div style={{ fontFamily:"'DM Mono',monospace", fontSize: Math.round(size * 0.2), color:"rgba(232,200,130,0.8)", letterSpacing:1.5, textTransform:"uppercase" }}>Travel Journal</div>
+      </div>
+    </div>
+  );
+};
+
+/* ════════════════════════════════════════════════════
    MAGIC TRANSITION
 ════════════════════════════════════════════════════ */
 function MagicTransition({ show }) {
@@ -742,10 +855,13 @@ function TripPage({ trip, onBack, onOpenAI, onUpdate, syncStatus }) {
   return (
     <div style={{ display:"flex", flexDirection:"column", height:"100%", background:C.bg }}>
       <div style={{ position:"relative", flexShrink:0 }}>
-        <HeroTag h={143} trip={trip} />
+        {/* Safe area inside hero so content doesn't go behind Dynamic Island */}
+        <HeroTag h={178} trip={trip} />
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom,rgba(0,0,0,0.08) 30%,rgba(0,0,0,0.82))" }} />
-        <button onClick={onBack} style={{ position:"absolute", top:48, left:16, background:"rgba(0,0,0,.55)", border:"1px solid rgba(255,255,255,.2)", color:"#fff", fontFamily:C.mono, fontSize:10, padding:"5px 12px", borderRadius:16, cursor:"pointer" }}>← 返回</button>
-        <div style={{ position:"absolute", top:48, right:16 }}><SyncBadge status={syncStatus} /></div>
+        {/* Safe area top spacer — transparent, lets hero bleed through */}
+        <div style={{ position:"absolute", top:0, left:0, right:0, height:50 }} />
+        <button onClick={onBack} style={{ position:"absolute", top:58, left:16, background:"rgba(0,0,0,.55)", border:"1px solid rgba(255,255,255,.2)", color:"#fff", fontFamily:C.mono, fontSize:10, padding:"5px 12px", borderRadius:16, cursor:"pointer" }}>← 返回</button>
+        <div style={{ position:"absolute", top:58, right:16 }}><SyncBadge status={syncStatus} /></div>
         <div style={{ position:"absolute", bottom:12, left:16, right:16 }}>
           <div style={{ fontFamily:C.jp, fontSize:20, fontWeight:800, color:"#fff", lineHeight:1.1 }}>{trip.title}</div>
           <div style={{ fontFamily:C.mono, fontSize:10, color:"rgba(255,255,255,.65)", marginTop:3 }}>{trip.dates} · {trip.daysCount}天 · {trip.country}</div>
@@ -771,7 +887,7 @@ function TripPage({ trip, onBack, onOpenAI, onUpdate, syncStatus }) {
 /* ════════════════════════════════════════════════════
    HOME PAGE
 ════════════════════════════════════════════════════ */
-function HomePage({ onSelectTrip, onAddTrip, trips, syncStatus }) {
+function HomePage({ onSelectTrip, onAddTrip, trips, syncStatus, onOpenSettings }) {
   const sorted = [...trips].sort((a,b)=>a.sortDate.localeCompare(b.sortDate));
   const next = sorted[0];
   const daysLeft = next?.daysUntil || 0;
@@ -779,11 +895,25 @@ function HomePage({ onSelectTrip, onAddTrip, trips, syncStatus }) {
   return (
     <div style={{ display:"flex", flexDirection:"column", height:"100%" }}>
       <div style={{ flexShrink:0 }}>
-        <div style={{ display:"flex", justifyContent:"space-between", padding:"14px 24px 0", fontSize:12, fontFamily:C.mono, color:"#fff" }}>
-          <span>9:41</span>
-          <SyncBadge status={syncStatus} />
+        {/* Safe area spacer — 50px for Dynamic Island / notch */}
+        <div style={{ height:50 }} />
+        {/* App header — Logo left, sync + settings right. NO fake clock. */}
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", padding:"0 20px 0" }}>
+          {/* App Logo — Ghibli couple icon */}
+          <AppLogo size={44} />
+          {/* Right controls */}
+          <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+            <SyncBadge status={syncStatus} />
+            {/* Settings / Profile icon */}
+            <div onClick={onOpenSettings} style={{ width:36, height:36, borderRadius:"50%", background:C.surface, border:`1px solid ${C.border2}`, display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer" }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="3.5" stroke="rgba(255,255,255,0.6)" strokeWidth="1.8"/>
+                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="rgba(255,255,255,0.6)" strokeWidth="1.8" strokeLinecap="round"/>
+              </svg>
+            </div>
+          </div>
         </div>
-        <div style={{ padding:"14px 20px 0" }}>
+        <div style={{ padding:"12px 20px 0" }}>
           <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
             <div>
               <div style={{ fontSize:10, color:C.muted, fontFamily:C.mono, letterSpacing:2, textTransform:"uppercase", marginBottom:4 }}>下次旅行倒數</div>
@@ -856,6 +986,65 @@ function HomePage({ onSelectTrip, onAddTrip, trips, syncStatus }) {
 }
 
 /* ════════════════════════════════════════════════════
+   SETTINGS PANEL
+════════════════════════════════════════════════════ */
+function SettingsPanel({ open, onClose, syncStatus }) {
+  if (!open) return null;
+  return (
+    <div style={{ position:"absolute", inset:0, background:"rgba(0,0,0,.7)", zIndex:7000, borderRadius:48, display:"flex", flexDirection:"column", justifyContent:"flex-end" }}
+      onClick={onClose}>
+      <div style={{ background:C.surface, borderRadius:"28px 28px 0 0", padding:"0 0 32px", maxHeight:"75%", overflowY:"auto" }}
+        onClick={e=>e.stopPropagation()}>
+        {/* Handle */}
+        <div style={{ display:"flex", justifyContent:"center", padding:"12px 0 8px" }}>
+          <div style={{ width:36, height:4, borderRadius:2, background:"rgba(255,255,255,.2)" }}/>
+        </div>
+        {/* Header */}
+        <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"8px 22px 16px" }}>
+          <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+            <SamGhibli size={36}/><GFGhibli size={36}/>
+            <div>
+              <div style={{ fontFamily:C.jp, fontSize:16, fontWeight:800, color:"#fff" }}>個人檔案</div>
+              <div style={{ fontFamily:C.mono, fontSize:10, color:C.muted, marginTop:2 }}>Sam & GF 的旅行本</div>
+            </div>
+          </div>
+          <button onClick={onClose} style={{ background:"rgba(255,255,255,.1)", border:"1px solid rgba(255,255,255,.2)", color:"#fff", fontFamily:C.mono, fontSize:10, padding:"5px 11px", borderRadius:14, cursor:"pointer" }}>× 關閉</button>
+        </div>
+        {/* Status */}
+        <div style={{ margin:"0 22px 16px", background:C.surface2, border:`1px solid ${C.border2}`, borderRadius:14, padding:"12px 16px" }}>
+          <div style={{ fontSize:10, fontFamily:C.mono, color:C.muted, letterSpacing:2, textTransform:"uppercase", marginBottom:8 }}>同步狀態</div>
+          <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+            <SyncBadge status={syncStatus}/>
+            <span style={{ fontSize:11, color:C.text2, fontFamily:C.mono }}>
+              {syncStatus==="saved"?"所有更改已儲存到雲端":syncStatus==="syncing"?"正在同步中…":syncStatus==="error"?"同步失敗，請檢查網絡":"本地模式（未連接資料庫）"}
+            </span>
+          </div>
+        </div>
+        {/* Info rows */}
+        {[
+          { icon:"🗺️", label:"旅程數量", value:`${3} 個計劃中` },
+          { icon:"📍", label:"當前位置", value:"Toronto, ON" },
+          { icon:"☁️", label:"資料庫", value:"Supabase Cloud" },
+          { icon:"📱", label:"App 版本", value:"v10.0 · 旅ノート" },
+        ].map((row,i)=>(
+          <div key={i} style={{ display:"flex", alignItems:"center", gap:14, padding:"11px 22px", borderTop:`1px solid ${C.border}` }}>
+            <span style={{ fontSize:20, width:28, textAlign:"center" }}>{row.icon}</span>
+            <div style={{ flex:1 }}>
+              <div style={{ fontSize:10, color:C.muted, fontFamily:C.mono }}>{row.label}</div>
+              <div style={{ fontSize:12, color:"#fff", marginTop:2 }}>{row.value}</div>
+            </div>
+          </div>
+        ))}
+        {/* App Logo full */}
+        <div style={{ display:"flex", justifyContent:"center", paddingTop:20 }}>
+          <AppLogo size={52}/>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ════════════════════════════════════════════════════
    ROOT APP — with Supabase sync
 ════════════════════════════════════════════════════ */
 export default function App() {
@@ -866,6 +1055,7 @@ export default function App() {
   const [chatOpen, setChatOpen] = useState(false);
   const [mascotVis, setMascotVis] = useState(true);
   const [showWizard, setShowWizard] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
   const [syncStatus, setSyncStatus] = useState("offline");
   const saveTimer = useRef(null);
 
@@ -930,8 +1120,9 @@ export default function App() {
         @keyframes magicPop{0%{transform:scale(0) rotate(-20deg);opacity:0}60%{transform:scale(1.1) rotate(4deg);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
         ::-webkit-scrollbar{display:none}
       `}</style>
+      {/* Phone shell for preview — in real deployment this wrapper doesn't exist */}
       <div style={{ width:390, height:844, background:C.bg, borderRadius:48, overflow:"hidden", position:"relative", border:"1.5px solid rgba(255,255,255,0.12)", boxShadow:"0 40px 120px rgba(0,0,0,0.8)", fontFamily:C.ui, color:"#fff" }}>
-        {screen==="home" && <HomePage onSelectTrip={trip=>navigate("trip",trip)} onAddTrip={()=>setShowWizard(true)} trips={trips} syncStatus={syncStatus}/>}
+        {screen==="home" && <HomePage onSelectTrip={trip=>navigate("trip",trip)} onAddTrip={()=>setShowWizard(true)} trips={trips} syncStatus={syncStatus} onOpenSettings={()=>setShowSettings(true)}/>}
         {screen==="trip" && selectedTrip && <TripPage trip={selectedTrip} onBack={()=>navigate("home")} onOpenAI={openAI} onUpdate={handleTripUpdate} syncStatus={syncStatus}/>}
         {screen==="home" && mascotVis && (
           <div onClick={openAI} style={{ position:"absolute", bottom:18, right:14, zIndex:200, cursor:"pointer", animation:"kFloat 3s ease-in-out infinite", filter:"drop-shadow(0 5px 16px rgba(242,201,160,.45))" }}>
@@ -941,6 +1132,7 @@ export default function App() {
         <MagicTransition show={showMagic}/>
         <AIChat open={chatOpen} onClose={closeAI} trip={selectedTrip||trips[0]}/>
         {showWizard && <AddTripWizard onClose={()=>setShowWizard(false)} onCreated={handleCreated}/>}
+        <SettingsPanel open={showSettings} onClose={()=>setShowSettings(false)} syncStatus={syncStatus}/>
       </div>
     </div>
   );
